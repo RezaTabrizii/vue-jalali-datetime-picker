@@ -1,0 +1,477 @@
+.date-time-picker {
+  direction: rtl;
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+  color: var(--dtp-text-primary);
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+
+  .day-btn {
+    color: var(--dtp-text-primary);
+  }
+
+  .picker-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: var(--dtpi-font-size);
+    color: var(--dtpi-text);
+    line-height: 15px;
+  }
+
+  .picker-input-wrapper {
+    position: relative;
+    width: 100%;
+
+    .picker-input {
+      width: 100%;
+      padding: 12px 40px 12px 40px; // extra padding for icons
+      border: 1px solid var(--dtpi-border);
+      border-radius: var(--dtpi-border-radius);
+      font-size: 14px;
+      background-color: var(--dtpi-background);
+      color: var(--dtpi-text);
+      transition: border-color 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: var(--dtp-primary);
+      }
+
+      &:read-only {
+        cursor: pointer;
+      }
+    }
+
+    /* Clear button (left side) */
+    .clear-btn {
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dtpi-text);
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        color: var(--dtpi-text);
+      }
+
+      &:hover {
+        color: var(--dtp-primary);
+      }
+    }
+
+    /* Calendar button (right side) */
+    .calendar-btn {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dtpi-text);
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        color: var(--dtpi-text);
+      }
+
+      &:hover {
+        color: var(--dtp-primary);
+      }
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--dtp-modal-overlay);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    will-change: opacity;
+    backface-visibility: hidden;
+  }
+
+  .modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .modal-content {
+    width: 360px;
+    background-color: var(--dtp-background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 95%;
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-origin: center center;
+  }
+
+  .month-year-picker {
+    background-color: var(--dtp-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 320px;
+    max-width: 95%;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-origin: center center;
+
+    .month-year-picker-body {
+      padding: 16px;
+    }
+
+    .year-selector {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .year-display {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 16px;
+        color: var(--dtp-primary);
+      }
+
+      .year-nav-btn {
+        background: none;
+        border: none;
+        color: var(--dtp-primary);
+        cursor: pointer;
+        padding: 4px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          color: var(--dtp-primary);
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+
+      .month-btn {
+        padding: 8px;
+        border: 1px solid var(--dtp-border);
+        border-radius: 4px;
+        background: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--dtp-text-primary) !important;
+
+        &:hover {
+          background-color: var(--dtp-primary);
+          border-color: var(--dtp-primary);
+          color: var(--dtp-text-secondary) !important;
+        }
+
+        &.in-range {
+          background-color: var(--dtp-primary-light);
+          color: var(--dtp-text-secondary) !important;
+        }
+
+        &.selected {
+          background-color: var(--dtp-primary);
+          color: var(--dtp-text-secondary) !important;
+          border-color: var(--dtp-primary);
+        }
+      }
+    }
+  }
+
+  .calendar-container,
+  .time-picker-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .calendar-header,
+  .time-picker-header {
+    background-color: var(--dtp-primary);
+    color: white;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .header-date-display {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--dtp-text-secondary);
+  }
+
+  .header-month-year {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+
+    .nav-btn,
+    .month-year-btn {
+      background: none;
+      border: none;
+      color: var(--dtp-text-secondary);
+      cursor: pointer;
+      padding: 4px 8px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        color: var(--dtp-text-secondary);
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .month-year-btn {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+  .calendar-body,
+  .time-picker-body {
+    padding: 16px;
+  }
+
+  .calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+    margin-bottom: 12px;
+    color: var(--dtp-primary);
+    font-weight: bold;
+  }
+
+  .calendar-days-container {
+    position: relative;
+    min-height: 220px;
+    overflow: hidden;
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      text-align: center;
+
+      .empty-day {
+        visibility: hidden;
+      }
+
+      .day-btn {
+        min-width: 35px;
+        height: 35px;
+        margin: 3px;
+        padding: 0;
+        border: none;
+        background: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.2s;
+        color: var(--dtp-text-primary);
+
+        &:hover {
+          background-color: var(--dtp-primary-light);
+        }
+
+        &.in-range {
+          background-color: var(--dtp-primary-light);
+          color: var(--dtp-text-secondary) !important;
+        }
+
+        &.selected {
+          background-color: var(--dtp-primary);
+          color: var(--dtp-text-secondary);
+        }
+      }
+    }
+  }
+
+  .calendar-footer,
+  .time-picker-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-top: 1px solid var(--dtp-border);
+    gap: 8px;
+
+    .footer-btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s;
+      background-color: var(--dtp-primary);
+      color: var(--dtp-text-secondary);
+
+      &:hover:not(:disabled) {
+        background-color: var(--dtp-primary-active);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .select-options li {
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .select-options li:hover {
+    background: var(--dtp-primary) !important;
+    color: var(--dtp-primary) !important;
+  }
+
+  .time-selectors {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+
+    // @media (max-width: 480px) {
+    //   flex-direction: column;
+    //   gap: 12px;
+    // }
+
+    .time-selector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 100px;
+
+      label {
+        font-size: 13px;
+        color: var(--dtp-text-primary);
+        margin-bottom: 2px;
+        font-weight: 500;
+      }
+
+      .custom-select {
+        position: relative;
+        width: 100%;
+        border: 1px solid var(--dtp-border);
+        border-radius: 8px;
+        background-color: var(--dtp-background);
+        cursor: pointer;
+        height: 35px;
+
+        .selected {
+          padding: 3px 16px;
+          font-size: 16px;
+          color: var(--dtp-text-primary);
+        }
+
+        .select-arrow {
+          position: absolute;
+          top: 50%;
+          left: 12px;
+          transform: translateY(-50%);
+          pointer-events: none;
+          color: var(--dtp-text-primary);
+          transition: transform 0.2s ease;
+          display: flex;
+
+          &.open {
+            transform: translateY(-50%) rotate(180deg);
+          }
+        }
+
+        .options {
+          position: absolute;
+          bottom: calc(100% + 4px);
+          left: 0;
+          right: 0;
+          background: var(--dtp-background);
+          border: 1px solid var(--dtp-border);
+          border-radius: 6px;
+          max-height: 180px;
+          overflow-y: auto;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          z-index: 1500000 !important;
+          scrollbar-width: thin;
+          scrollbar-color: var(--dtp-primary) transparent;
+
+          &::-webkit-scrollbar {
+            width: 6px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: rgba(var(--dtp-primary), 0.9);
+            border-radius: 4px;
+          }
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          &::-webkit-scrollbar:horizontal {
+            height: 4px;
+          }
+
+          li {
+            padding: 1px 16px;
+            font-size: 16px;
+            color: var(--dtp-text-primary);
+            transition: background 0.2s ease;
+
+            &:hover {
+              background: var(--dtp-primary);
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .digital-clock {
+    font-size: 48px;
+    font-family: monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+    color: var(--dtp-text-primary);
+  }
+}

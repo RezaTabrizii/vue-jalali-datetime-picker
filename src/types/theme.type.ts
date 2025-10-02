@@ -1,0 +1,21 @@
+export type JalaliDateTimePickerTheme = Partial<{
+  primary: string;
+  primaryH: string;
+  primaryS: string;
+  primaryL: string;
+  primaryHover: string;
+  primaryActive: string;
+  primaryLight: string;
+  textPrimary: string;
+  textSecondary: string;
+  border: string;
+  background: string;
+  // surface: string;
+  modalOverlay: string;
+  inputText: string;
+  inputBackground: string;
+  inputBorder: string;
+  inputBorderRadius: string;
+  inputFontSize: string;
+  inputPadding: string;
+}>;

@@ -1,0 +1,69 @@
+{
+  "name": "vue-jalali-datetime-picker",
+  "version": "1.0.1",
+  "description": "A Persian (Jalali) date-time picker component for Vue.",
+  "type": "module",
+  "author": "Reza Tabrizi <smrezatabrizi@gmail.com> (https://github.com/RezaTabrizii)",
+  "license": "MIT",
+  "homepage": "https://github.com/RezaTabrizii/vue-jalali-datetime-picker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RezaTabrizii/vue-jalali-datetime-picker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RezaTabrizii/vue-jalali-datetime-picker/issues"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "persian",
+    "jalali",
+    "solar",
+    "datetime",
+    "datepicker",
+    "timepicker",
+    "datetimepicker",
+    "calendar"
+  ],
+  "main": "./dist/jalali-datetime-picker.umd.js",
+  "module": "./dist/jalali-datetime-picker.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/jalali-datetime-picker.es.js",
+      "require": "./dist/jalali-datetime-picker.umd.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./style.css": "./dist/index.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build && vue-tsc -p tsconfig.json --emitDeclarationOnly false",
+    "release": "npm run build && npm publish --access public",
+    "demo": "vite --config demo/vite.config.ts"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.13"
+  },
+  "dependencies": {
+    "jalaali-js": "^1.2.8"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.1",
+    "@types/jalaali-js": "^1.2.0",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/tsconfig": "^0.7.0",
+    "npm-run-all2": "^7.0.2",
+    "sass-embedded": "^1.89.0",
+    "typescript": "~5.8.0",
+    "vite": "^6.2.4",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-lib-inject-css": "^2.2.2",
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "vue-tsc": "^2.2.8"
+  }
+}

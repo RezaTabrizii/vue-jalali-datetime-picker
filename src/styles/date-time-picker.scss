@@ -1,0 +1,110 @@
+/* --- THEME VARIABLES --- */
+.date-time-picker {
+  --dtp-primary-h: 210;
+  --dtp-primary-s: 79%;
+  --dtp-primary-l: 46%;
+
+  --dtp-primary: hsl(var(--dtp-primary-h), var(--dtp-primary-s), var(--dtp-primary-l));
+  --dtp-primary-hover: hsl(var(--dtp-primary-h), var(--dtp-primary-s), calc(var(--dtp-primary-l) - 5%));
+  --dtp-primary-active: hsl(var(--dtp-primary-h), var(--dtp-primary-s), calc(var(--dtp-primary-l) - 10%));
+  --dtp-primary-light: hsl(var(--dtp-primary-h), calc(var(--dtp-primary-s) - 30%), calc(var(--dtp-primary-l) + 20%));
+
+  --dtp-text-primary: rgba(0, 0, 0, 0.87);
+  --dtp-text-secondary: #ffffff;
+
+  --dtp-border: rgba(0, 0, 0, 0.12);
+  --dtp-background: #ffffff;
+  // --dtp-surface: #f5f5f5;
+
+  --dtp-modal-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Input variables */
+  --dtpi-text: rgba(0, 0, 0, 0.87);
+  --dtpi-background: #ffffff;
+  --dtpi-border: rgba(0, 0, 0, 0.12);
+  --dtpi-border-radius: 5px;
+  --dtpi-font-size: 14px;
+  --dtpi-padding: 8px;
+}
+
+/* --- REUSABLE ELEMENTS --- */
+.date-time-picker .day-btn {
+  color: var(--dtp-text-primary);
+}
+
+.date-time-picker .footer-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  background-color: var(--dtp-primary);
+  color: var(--dtp-text-secondary);
+}
+
+.date-time-picker .footer-btn:hover:not(:disabled) {
+  background-color: var(--dtp-primary-active);
+}
+
+.date-time-picker .footer-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- TRANSITIONS --- */
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active,
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  position: absolute;
+  width: 100%;
+}
+
+.slide-left-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-left-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-right-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-right-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slide-up-enter-from {
+  transform: translateY(100%);
+  opacity: 0;
+}
+.slide-up-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.fade-scale-enter-active,
+.fade-scale-leave-active,
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.fade-scale-enter-from,
+.fade-scale-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

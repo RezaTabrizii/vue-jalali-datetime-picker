@@ -1,0 +1,6 @@
+node_modules
+demo/
+.vscode/
+*.log
+vite.config.ts
+tsconfig.json
