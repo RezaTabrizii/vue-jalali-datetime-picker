@@ -1,8 +1,8 @@
 # vue-jalali-datetime-picker
 
-A powerful, simple, and customizable **Jalali date and time picker** for Vue.js applications. This package provides a flexible **Jalali calendar** component, enabling users to select single dates, date and time, multiple dates, or date ranges with ease. It supports **custom theming**, **slot-based custom inputs**, and is optimized for seamless integration into modern Vue.js projects.
+A powerful, simple, and customizable **Jalali date and time picker** for Vue.js and Nuxt applications. This package provides a flexible **Jalali calendar** component, enabling users to select single dates, date and time, multiple dates, or date ranges with ease. It supports **custom theming**, **slot-based custom inputs**, and is optimized for seamless integration into both modern Vue.js and Nuxt projects.
 
-Enhance your Vue.js application with this **Vue Jalali date picker** for a robust and localized date selection experience, perfect for Persian (Farsi) users or applications requiring **Jalali calendar** support.
+Enhance your Vue.js or Nuxt application with this **Vue Jalali date picker** for a robust and localized date selection experience, perfect for Persian (Farsi) users or applications requiring **Jalali calendar** support.
 
 ## Features
 
@@ -15,10 +15,11 @@ Enhance your Vue.js application with this **Vue Jalali date picker** for a robus
 - **SEO Optimized**: Built with best practices for discoverability.
 - **Responsive Design**: Works seamlessly on desktop and mobile devices.
 - **Jalali Calendar Support**: Tailored for Persian users with full Jalali date support.
+- **Nuxt Compatibility**: Fully compatible with Nuxt for server-side rendering and static site generation.
 
 ## Installation
 
-Getting started is easy! Choose your preferred package manager and run the following command to add **vue-jalali-datetime-picker** to your project:
+Getting started is easy! Choose your preferred package manager and run the following command to add **vue-jalali-datetime-picker** to your Vue.js or Nuxt project:
 
 ```bash
 # Install with npm (great for Node.js projects)
@@ -41,11 +42,29 @@ For quick testing or development without a build step, include the package via a
 
 ## Usage
 
-Below are examples demonstrating how to use the **JalaliDateTimePicker** and **JalaliMultipleDatePicker** components in your Vue.js application using **Vue 3 Composition API**.
+Below are examples demonstrating how to use the **JalaliDateTimePicker** and **JalaliMultipleDatePicker** components in your Vue.js or Nuxt application. Ensure you import the styles for proper rendering.
+
+### Importing Styles
+
+- **For Vue Projects**: Import the CSS in your component:
+
+  ```vue
+  <script setup lang="ts">
+  import "vue-jalali-datetime-picker/style.css";
+  </script>
+  ```
+
+- **For Nuxt Projects**: Add the CSS to your `nuxt.config.ts`:
+  ```typescript
+  // nuxt.config.ts
+  export default defineNuxtConfig({
+    css: ["vue-jalali-datetime-picker/style.css"],
+  });
+  ```
 
 ### Importing the Components
 
-Import the components into your Vue.js component:
+Import the components into your Vue.js or Nuxt component:
 
 ```vue
 <script setup lang="ts">

@@ -1,11 +1,11 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
-import { libInjectCss } from "vite-plugin-lib-inject-css";
+// import { libInjectCss } from "vite-plugin-lib-inject-css";
 import path from "path";
 
 export default defineConfig({
-  plugins: [vue(), dts({ insertTypesEntry: true }), libInjectCss()],
+  plugins: [vue(), dts({ insertTypesEntry: true })], //, libInjectCss()
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
@@ -22,7 +22,7 @@ export default defineConfig({
         },
       },
     },
-    // cssCodeSplit: false,
+    cssCodeSplit: true,
     outDir: "dist",
     emptyOutDir: true,
   },

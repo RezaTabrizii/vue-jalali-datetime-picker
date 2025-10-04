@@ -1,6 +1,6 @@
 {
   "name": "vue-jalali-datetime-picker",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A Persian (Jalali) date-time picker component for Vue.",
   "type": "module",
   "author": "Reza Tabrizi <smrezatabrizi@gmail.com> (https://github.com/RezaTabrizii)",
@@ -20,6 +20,7 @@
   "keywords": [
     "vue",
     "vue3",
+    "nuxt",
     "persian",
     "jalali",
     "solar",
@@ -48,7 +49,6 @@
     "build": "vite build && vue-tsc -p tsconfig.json --emitDeclarationOnly false",
     "release:npm": "npm run build && npm publish --access public --registry=https://registry.npmjs.org/",
     "release:github": "npm run build && npm publish --registry=https://npm.pkg.github.com/",
-    "release:all": "npm run release:npm && npm run release:github",
     "demo": "vite --config demo/vite.config.ts"
   },
   "peerDependencies": {

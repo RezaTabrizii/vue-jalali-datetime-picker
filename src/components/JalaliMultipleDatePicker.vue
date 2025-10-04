@@ -2,7 +2,7 @@
 import type { JalaliDateTimePickerTheme } from "../types/theme.type";
 import { convertToISOWithTime } from "../utils/dateUtilities";
 import { truncateSplit } from "../utils/stringUtilities";
-import { jalaaliMonthLength, toGregorian, toJalaali } from "jalaali-js";
+import jalaali from "jalaali-js";
 import { ref, computed, useAttrs, watch } from "vue";
 
 defineOptions({
@@ -44,6 +44,8 @@ const cssVars = computed(() => {
     ...(t.inputPadding ? { "--dtpi-padding": t.inputPadding } : {}),
   } as Record<string, string>;
 });
+
+const { toJalaali, toGregorian, jalaaliMonthLength } = jalaali;
 
 const label = computed(() => useAttrs().label as string | undefined);
 
@@ -531,6 +533,8 @@ watch(showCalender, () => {
     </transition>
   </div>
 </template>
+
+<style scoped src="../styles/date-time-picker.scss" />
 
 <style scoped src="../styles/data-time-picker-layout.scss" />
 
