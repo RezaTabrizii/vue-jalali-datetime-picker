@@ -1,4 +1,4 @@
-import "./styles/date-time-picker.scss";
+import "./style-shim";
 
 export { default as JalaliDateTimePicker } from "./components/JalaliDateTimePicker.vue";
 export { default as JalaliMultipleDatePicker } from "./components/JalaliMultipleDatePicker.vue";
