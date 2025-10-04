@@ -13,6 +13,10 @@
   "bugs": {
     "url": "https://github.com/RezaTabrizii/vue-jalali-datetime-picker/issues"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
   "keywords": [
     "vue",
     "vue3",
@@ -42,7 +46,9 @@
   "sideEffects": false,
   "scripts": {
     "build": "vite build && vue-tsc -p tsconfig.json --emitDeclarationOnly false",
-    "release": "npm run build && npm publish --access public",
+    "release:npm": "npm run build && npm publish --access public --registry=https://registry.npmjs.org/",
+    "release:github": "npm run build && npm publish --registry=https://npm.pkg.github.com/",
+    "release:all": "npm run release:npm && npm run release:github",
     "demo": "vite --config demo/vite.config.ts"
   },
   "peerDependencies": {
