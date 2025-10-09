@@ -4,6 +4,8 @@ A powerful, simple, and customizable **Jalali date and time picker** for Vue.js 
 
 Enhance your Vue.js or Nuxt application with this **Vue Jalali date picker** for a robust and localized date selection experience, perfect for Persian (Farsi) users or applications requiring **Jalali calendar** support.
 
+[![NPM Package](https://img.shields.io/badge/npm-v1.0.6-blue)](https://www.npmjs.com/package/vue-jalali-datetime-picker)
+
 ## Features
 
 - **Single Date Picker**: Select a single date using the Jalali calendar.
@@ -12,14 +14,8 @@ Enhance your Vue.js or Nuxt application with this **Vue Jalali date picker** for
 - **Date Range Picker**: Select a range of dates for flexible use cases.
 - **Customizable Themes**: Customize colors via HSL or specific color values.
 - **Custom Input Support**: Use custom input fields via Vue slots.
-- **SEO Optimized**: Built with best practices for discoverability.
-- **Responsive Design**: Works seamlessly on desktop and mobile devices.
 - **Jalali Calendar Support**: Tailored for Persian users with full Jalali date support.
 - **Nuxt Compatibility**: Fully compatible with Nuxt for server-side rendering and static site generation.
-
-## Samples
-
-![Date Picker](https://drive.google.com/uc?export=view&id=1cfaslboM4wV7ntyUu2iRkKqhzRLAITtH)
 
 ## Installation
 
@@ -47,6 +43,8 @@ For quick testing or development without a build step, include the package via a
 ## Usage
 
 Below are examples demonstrating how to use the **JalaliDateTimePicker** and **JalaliMultipleDatePicker** components in your Vue.js or Nuxt application. Ensure you import the styles for proper rendering.
+
+<img src="https://drive.google.com/uc?export=view&id=1SEX8h-CtKcNQogeJtoXE_7bbn5oPYI2I" alt="Persian (Jalali) DateTime Picker" style="height:200px;">
 
 ### Importing Styles
 
