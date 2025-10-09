@@ -44,7 +44,11 @@ For quick testing or development without a build step, include the package via a
 
 Below are examples demonstrating how to use the **JalaliDateTimePicker** and **JalaliMultipleDatePicker** components in your Vue.js or Nuxt application. Ensure you import the styles for proper rendering.
 
-<img src="https://drive.google.com/uc?export=view&id=1SEX8h-CtKcNQogeJtoXE_7bbn5oPYI2I" alt="Persian (Jalali) DateTime Picker" style="height:200px;">
+<div style="text-align: center;">
+  <div style="display:flex; gap:10px; justify-content: center;">
+    <img src="https://drive.google.com/uc?export=view&id=1SEX8h-CtKcNQogeJtoXE_7bbn5oPYI2I" alt="Persian (Jalali) DateTime Picker" style="height:350px;">
+  </div>
+</div>
 
 ### Importing Styles
 
