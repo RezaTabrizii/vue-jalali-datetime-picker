@@ -17,6 +17,10 @@ Enhance your Vue.js or Nuxt application with this **Vue Jalali date picker** for
 - **Jalali Calendar Support**: Tailored for Persian users with full Jalali date support.
 - **Nuxt Compatibility**: Fully compatible with Nuxt for server-side rendering and static site generation.
 
+## Samples
+
+![Date Picker](https://drive.google.com/uc?export=view&id=1cfaslboM4wV7ntyUu2iRkKqhzRLAITtH)
+
 ## Installation
 
 Getting started is easy! Choose your preferred package manager and run the following command to add **vue-jalali-datetime-picker** to your Vue.js or Nuxt project:
