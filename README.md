@@ -46,7 +46,7 @@ Below are examples demonstrating how to use the **JalaliDateTimePicker** and **J
 
 <div style="text-align: center;">
   <div style="display:flex; gap:10px; justify-content: center;">
-    <img src="https://drive.google.com/uc?export=view&id=1SEX8h-CtKcNQogeJtoXE_7bbn5oPYI2I" alt="Persian (Jalali) DateTime Picker" style="height:350px;">
+    <img src="https://drive.google.com/uc?export=view&id=1SEX8h-CtKcNQogeJtoXE_7bbn5oPYI2I" alt="Persian (Jalali) DateTime Picker" style="height:400px;">
   </div>
 </div>
 
