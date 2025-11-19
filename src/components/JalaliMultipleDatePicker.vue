@@ -497,7 +497,7 @@ watch(showCalender, () => {
                 </svg>
               </button>
 
-              <span class="year-display">{{ currentMonthAndYear.year }}</span>
+              <input type="number" class="year-input" v-model.number="currentMonthAndYear.year" />
 
               <button class="year-nav-btn" @click="currentMonthAndYear.year++">
                 <svg
