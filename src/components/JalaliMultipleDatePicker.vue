@@ -12,6 +12,7 @@ defineOptions({
 
 const props = defineProps<{
   type: "multiple" | "range";
+  format?: "date" | "datetime";
   theme?: JalaliDateTimePickerTheme;
 }>();
 
@@ -239,14 +240,14 @@ const handleSubmit = () => {
     let current = new Date(startDate);
 
     while (current <= endDate) {
-      gregorianDates.push(convertToISOWithTime(current.toString()));
+      gregorianDates.push(convertToISOWithTime(current.toString(), props.format === "datetime"));
       current = new Date(current.getFullYear(), current.getMonth(), current.getDate() + 1);
     }
   } else {
     gregorianDates = selectedJalaliDates.value.map(({ year, month, day }) => {
       const g = toGregorian(year, month, day);
 
-      return convertToISOWithTime(new Date(g.gy, g.gm - 1, g.gd).toString());
+      return convertToISOWithTime(new Date(g.gy, g.gm - 1, g.gd).toString(), props.format === "datetime");
     });
   }
 

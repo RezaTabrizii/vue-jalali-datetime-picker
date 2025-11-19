@@ -11,6 +11,7 @@ defineOptions({
 
 const props = defineProps<{
   enableTime?: boolean;
+  format?: "date" | "datetime";
   theme?: JalaliDateTimePickerTheme;
 }>();
 
@@ -212,9 +213,16 @@ const handleSubmit = () => {
 
   const dateObj = new Date(gDate.gy, gDate.gm - 1, gDate.gd);
 
+  const format = props.format || (props.enableTime ? "datetime" : "date");
+
   gregorianDateModel.value = props.enableTime
-    ? convertToISOWithTime(dateObj.toString(), selectedTime.value.hour, selectedTime.value.minute)
-    : convertToISOWithTime(dateObj.toString());
+    ? convertToISOWithTime(
+        dateObj.toString(),
+        format === "datetime",
+        selectedTime.value.hour,
+        selectedTime.value.minute
+      )
+    : convertToISOWithTime(dateObj.toString(), format !== "date");
 
   currentStep.value = "date";
   showCalender.value = false;
