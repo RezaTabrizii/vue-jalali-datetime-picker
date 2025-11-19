@@ -112,6 +112,27 @@ const selectedDateAndTime = ref<Date | null>(null);
 </template>
 ```
 
+### Example 3: Using the format Prop
+
+Specify the format of the returned value using the `format` prop.
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { JalaliDateTimePicker } from "vue-jalali-datetime-picker";
+
+const selectedDate = ref<Date | null>(null);
+</script>
+
+<template>
+  <!-- Return only the date -->
+  <JalaliDateTimePicker v-model:date="selectedDate" label="انتخاب تاریخ" :format="'date'" />
+
+  <!-- Return date and time -->
+  <JalaliDateTimePicker v-model:date="selectedDate" label="انتخاب تاریخ و زمان" enable-time :format="'datetime'" />
+</template>
+```
+
 ### Example 3: Multiple Dates Picker
 
 Use **JalaliMultipleDatePicker** to select multiple dates.
