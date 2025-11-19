@@ -4,7 +4,7 @@ A powerful, simple, and customizable **Jalali date and time picker** for Vue.js 
 
 Enhance your Vue.js or Nuxt application with this **Vue Jalali date picker** for a robust and localized date selection experience, perfect for Persian (Farsi) users or applications requiring **Jalali calendar** support.
 
-[![NPM Package](https://img.shields.io/badge/npm-v1.0.7-blue)](https://www.npmjs.com/package/vue-jalali-datetime-picker)
+[![NPM Package](https://img.shields.io/badge/npm-v1.1.1-blue)](https://www.npmjs.com/package/vue-jalali-datetime-picker)
 
 ## Features
 
@@ -133,7 +133,7 @@ const selectedDate = ref<Date | null>(null);
 </template>
 ```
 
-### Example 3: Multiple Dates Picker
+### Example 4: Multiple Dates Picker
 
 Use **JalaliMultipleDatePicker** to select multiple dates.
 
@@ -150,7 +150,7 @@ const selectedManyDates = ref<Date[]>([]);
 </template>
 ```
 
-### Example 4: Ranged Dates Picker
+### Example 5: Ranged Dates Picker
 
 Select a range of dates using the `range` type.
 
