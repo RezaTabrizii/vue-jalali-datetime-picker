@@ -317,7 +317,7 @@
       }
 
       .day-btn {
-        min-width: 35px;
+        width: 35px;
         height: 35px;
         margin: 3px;
         padding: 0;
@@ -492,5 +492,61 @@
     letter-spacing: 2px;
     text-align: center;
     color: var(--dtp-text-primary);
+  }
+
+  @media (max-width: 400px) {
+    .header-date-display {
+      font-size: 22px !important;
+    }
+
+    .month-year-btn {
+      font-size: 14px !important;
+    }
+
+    .calendar-weekdays {
+      font-size: 13px !important;
+    }
+
+    .calendar-days-container {
+      min-height: 160px !important;
+    }
+
+    .day-btn {
+      width: 25px !important;
+      height: 25px !important;
+      font-size: 11px !important;
+    }
+
+    .calendar-footer,
+    .time-picker-footer {
+      padding: 6px 12px !important;
+    }
+
+    .footer-btn {
+      padding: 6px 12px !important;
+      font-size: 12px !important;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .calendar-days-container {
+      min-height: 130px !important;
+    }
+
+    .day-btn {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+
+  @media (max-width: 280px) {
+    .calendar-days-container {
+      min-height: 100px !important;
+    }
+
+    .day-btn {
+      width: 15px !important;
+      height: 15px !important;
+    }
   }
 }
