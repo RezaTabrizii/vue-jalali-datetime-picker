@@ -288,7 +288,7 @@ function selectOption(type: "hour" | "minute", value: number) {
             @click="showCalender = true"
           />
 
-          <button v-if="formattedDate" class="clear-btn" @click="clearDate">
+          <button type="button" v-if="formattedDate" class="clear-btn" @click.stop.prevent="clearDate">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -305,7 +305,7 @@ function selectOption(type: "hour" | "minute", value: number) {
             </svg>
           </button>
 
-          <button class="calendar-btn" @click="showCalender = true">
+          <button type="button" class="calendar-btn" @click.stop.prevent="showCalender = true">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -342,7 +342,7 @@ function selectOption(type: "hour" | "minute", value: number) {
                       {{ formattedHeaderDate || "-" }}
                     </div>
                     <div class="header-month-year">
-                      <button class="nav-btn" @click="goToPreviousMonth">
+                      <button type="button" class="nav-btn" @click.stop.prevent="goToPreviousMonth">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -357,10 +357,10 @@ function selectOption(type: "hour" | "minute", value: number) {
                           <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
                       </button>
-                      <button class="month-year-btn" @click="showMonthYearPicker = true">
+                      <button type="button" class="month-year-btn" @click.stop.prevent="showMonthYearPicker = true">
                         {{ persianMonths[currentMonthAndYear.month - 1] }} {{ currentMonthAndYear.year }}
                       </button>
-                      <button class="nav-btn" @click="goToNextMonth">
+                      <button type="button" class="nav-btn" @click.stop.prevent="goToNextMonth">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -394,6 +394,7 @@ function selectOption(type: "hour" | "minute", value: number) {
                           ></span>
 
                           <button
+                            type="button"
                             v-for="dayInfo in calenderData.dayInfo"
                             :key="dayInfo.day"
                             class="day-btn"
@@ -403,7 +404,7 @@ function selectOption(type: "hour" | "minute", value: number) {
                                 selectedJalaliDate?.month === calenderData.month &&
                                 selectedJalaliDate.year === calenderData.year,
                             }"
-                            @click="handleDateSelect(dayInfo.day, calenderData.month, calenderData.year)"
+                            @click.stop.prevent="handleDateSelect(dayInfo.day, calenderData.month, calenderData.year)"
                           >
                             {{ dayInfo.day }}
                           </button>
@@ -415,20 +416,25 @@ function selectOption(type: "hour" | "minute", value: number) {
                   <!-- footer (actions) -->
                   <div class="calendar-footer">
                     <div>
-                      <button class="footer-btn now-btn" @click="selectDateOfToday">اکنون</button>
+                      <button type="button" class="footer-btn now-btn" @click.stop.prevent="selectDateOfToday">
+                        اکنون
+                      </button>
                     </div>
 
                     <div>
                       <button
+                        type="button"
                         v-if="enableTime"
                         class="footer-btn time-btn"
                         :disabled="!selectedJalaliDate"
-                        @click="currentStep = 'time'"
+                        @click.stop.prevent="currentStep = 'time'"
                       >
                         انتخاب زمان
                       </button>
 
-                      <button v-else class="footer-btn confirm-btn" @click="handleSubmit">تایید</button>
+                      <button type="button" v-else class="footer-btn confirm-btn" @click.stop.prevent="handleSubmit">
+                        تایید
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -511,12 +517,18 @@ function selectOption(type: "hour" | "minute", value: number) {
 
                   <div class="time-picker-footer">
                     <div>
-                      <button class="footer-btn now-btn" @click="selectTimeOfToday">اکنون</button>
+                      <button type="button" class="footer-btn now-btn" @click.stop.prevent="selectTimeOfToday">
+                        اکنون
+                      </button>
                     </div>
 
                     <div style="display: flex; gap: 8px">
-                      <button class="footer-btn back-btn" @click="currentStep = 'date'">انتخاب تاریخ</button>
-                      <button class="footer-btn confirm-btn" @click="handleSubmit">تایید</button>
+                      <button type="button" class="footer-btn back-btn" @click.stop.prevent="currentStep = 'date'">
+                        انتخاب تاریخ
+                      </button>
+                      <button type="button" class="footer-btn confirm-btn" @click.stop.prevent="handleSubmit">
+                        تایید
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -538,7 +550,7 @@ function selectOption(type: "hour" | "minute", value: number) {
         <div class="month-year-picker">
           <div class="month-year-picker-body">
             <div class="year-selector">
-              <button class="year-nav-btn" @click="currentMonthAndYear.year--">
+              <button type="button" class="year-nav-btn" @click.stop.prevent="currentMonthAndYear.year--">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -556,7 +568,7 @@ function selectOption(type: "hour" | "minute", value: number) {
 
               <input type="number" class="year-input" v-model.number="currentMonthAndYear.year" />
 
-              <button class="year-nav-btn" @click="currentMonthAndYear.year++">
+              <button type="button" class="year-nav-btn" @click.stop.prevent="currentMonthAndYear.year++">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -575,11 +587,12 @@ function selectOption(type: "hour" | "minute", value: number) {
 
             <div class="month-grid">
               <button
+                type="button"
                 v-for="(month, index) in persianMonths"
                 :key="index"
                 class="month-btn"
                 :class="{ selected: currentMonthAndYear.month === index + 1 }"
-                @click="selectMonth(index + 1)"
+                @click.stop.prevent="selectMonth(index + 1)"
               >
                 {{ month }}
               </button>

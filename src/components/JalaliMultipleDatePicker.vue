@@ -325,7 +325,7 @@ watch(showCalender, () => {
             @click="showCalender = true"
           />
 
-          <button v-if="formattedDate" class="clear-btn" @click="clearDate">
+          <button type="button" v-if="formattedDate" class="clear-btn" @click.stop.prevent="clearDate">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -342,7 +342,7 @@ watch(showCalender, () => {
             </svg>
           </button>
 
-          <button class="calendar-btn" @click="showCalender = true">
+          <button type="button" class="calendar-btn" @click.stop.prevent="showCalender = true">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -378,7 +378,7 @@ watch(showCalender, () => {
                 </div>
 
                 <div class="header-month-year">
-                  <button class="nav-btn" @click="goToPreviousMonth">
+                  <button type="button" class="nav-btn" @click.stop.prevent="goToPreviousMonth">
                     <!-- right arrow -->
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -395,12 +395,12 @@ watch(showCalender, () => {
                     </svg>
                   </button>
 
-                  <button class="month-year-btn" @click="showMonthYearPicker = true">
+                  <button type="button" class="month-year-btn" @click.stop.prevent="showMonthYearPicker = true">
                     {{ persianMonths[currentMonthAndYear.month - 1] }}
                     {{ currentMonthAndYear.year }}
                   </button>
 
-                  <button class="nav-btn" @click="goToNextMonth">
+                  <button type="button" class="nav-btn" @click.stop.prevent="goToNextMonth">
                     <!-- left arrow -->
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -437,6 +437,7 @@ watch(showCalender, () => {
 
                       <!-- Day buttons -->
                       <button
+                        type="button"
                         v-for="dayInfo in calenderData.dayInfo"
                         :key="dayInfo.day"
                         class="day-btn"
@@ -451,7 +452,7 @@ watch(showCalender, () => {
                             year: calenderData.year,
                           }),
                         }"
-                        @click="handleDateSelect(dayInfo.day, calenderData.month, calenderData.year)"
+                        @click.stop.prevent="handleDateSelect(dayInfo.day, calenderData.month, calenderData.year)"
                       >
                         {{ dayInfo.day }}
                       </button>
@@ -462,8 +463,8 @@ watch(showCalender, () => {
 
               <!-- Footer -->
               <div class="calendar-footer">
-                <button class="footer-btn now-btn" @click="selectDateOfToday">اکنون</button>
-                <button class="footer-btn confirm-btn" @click="handleSubmit">تایید</button>
+                <button type="button" class="footer-btn now-btn" @click.stop.prevent="selectDateOfToday">اکنون</button>
+                <button type="button" class="footer-btn confirm-btn" @click.stop.prevent="handleSubmit">تایید</button>
               </div>
             </div>
           </div>
@@ -482,7 +483,7 @@ watch(showCalender, () => {
         <div class="month-year-picker">
           <div class="month-year-picker-body">
             <div class="year-selector">
-              <button class="year-nav-btn" @click="currentMonthAndYear.year--">
+              <button type="button" class="year-nav-btn" @click.stop.prevent="currentMonthAndYear.year--">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -500,7 +501,7 @@ watch(showCalender, () => {
 
               <input type="number" class="year-input" v-model.number="currentMonthAndYear.year" />
 
-              <button class="year-nav-btn" @click="currentMonthAndYear.year++">
+              <button type="button" class="year-nav-btn" @click.stop.prevent="currentMonthAndYear.year++">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -519,11 +520,12 @@ watch(showCalender, () => {
 
             <div class="month-grid">
               <button
+                type="button"
                 v-for="(month, index) in persianMonths"
                 :key="index"
                 class="month-btn"
                 :class="{ selected: currentMonthAndYear.month === index + 1 }"
-                @click="selectMonth(index + 1)"
+                @click.stop.prevent="selectMonth(index + 1)"
               >
                 {{ month }}
               </button>
